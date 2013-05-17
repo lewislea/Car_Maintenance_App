@@ -6,24 +6,34 @@ so I can keep them in good working order and they can run longer.
 
 - open app `$ VM open`
 - prompt screen listing commands opens
-- add nea vehicle to database (year, make, model, mileage) `$ add vehicle`
-- tha vehicle shows up in the vehicle list `$ vehicle list`
+- add nea vehicle to database (year, make, model, mileage)
+`$ add vehicle`
+- tha vehicle shows up in the vehicle list
+`$ vehicle list`
 
 As a vehicle owner, <br/>
 I want to know the date and mileage of my last oil change,<br/>
 so I can change my oil at the proper interval and keep my engine clean and running without problems for a long time.
 
-- open vehicle info `open vehicle`
-- add new category or add repair instance to exhisting category `add repair <category> <instance>`
-- for a list of repair categories `list repair`
+- open vehicle info
+`$ open <vehicle>`
+- add new category or add repair instance to exhisting category
+`$ add repair <category> <instance>`
+- for a list of repair categories
+`$ list repair`
 - log information into app
 
 As a vehicle owner, <br/>
 I want to know the last time I had the timing belt and water pump changed, <br/>
 so I can keep ma vehicle running properly and avoid a blown head gasket.
 
-- open vehicle info `open vehicle`
-- add new category or add repair instance to exhisting category `add repair <category> <instance>`
+- open vehicle info
+`$ open <vehicle>`
+- information about that vehicle is displayed
+- add new category or add repair instance to existing category
+`$ <add> or <update> repair <category>`
+`which instance?`
+- instances are listed and user will choose instance to edit
 - log information into app
 
 As a vehicle owner, <br/>
@@ -38,8 +48,9 @@ As a vehicle owner, <br/>
 I want to know the last time I replaced my brakes, <br/>
 so I can know when they need to be replaced.
 
-- open vehicle info `open vehicle`
-- add new category or add repair instance to exhisting category `add repair <category> <instance>`
+- open vehicle info `$ open <vehicle>`
+- add new category or add repair instance to exhisting category
+`$ add repair <category> <instance>`
 - log information into app
 
 As a vehicle owner, <br/>
