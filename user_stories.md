@@ -4,37 +4,30 @@ As a vehicle owner, <br/>
 I want to track the maintenance of all of my vehicles,<br/>
 so I can keep them in good working order and they can run longer.
 
-- open app `$ VM open`
-- prompt screen listing commands opens
-- add nea vehicle to database (year, make, model, mileage)
-`$ add vehicle`
-- tha vehicle shows up in the vehicle list
-`$ vehicle list`
+- open app `$ ruby car.rb`
+- prompt screen listing commands opens.
+- user can choose to add new vehicle to database
+`$ add-vehicle`
+- user is prompted through the proper inputs (year, make, mileage, date purchased)
+- vehicle is added to the database
+- the vehicle shows up in the vehicle list
+`$ list-vehicles`
 
 As a vehicle owner, <br/>
 I want to know the date and mileage of my last oil change,<br/>
 so I can change my oil at the proper interval and keep my engine clean and running without problems for a long time.
 
-- open vehicle info
-`$ open <vehicle>`
-- add new category or add repair instance to exhisting category
-`$ add repair <category> <instance>`
-- for a list of repair categories
-`$ list repair`
-- log information into app
+- open app `$ ruby car.rb`
+- prompt screen listing commands opens.
+- user can choose to add new repair to database
+`$ add-repair`
+- user is prompted through the proper inputs (year, make, mileage, date purchased)
+- list of cars is printed to choose which car the repair gets assigned to
+- car is chosen and repair is added to the database
 
 As a vehicle owner, <br/>
 I want to know the last time I had the timing belt and water pump changed, <br/>
 so I can keep ma vehicle running properly and avoid a blown head gasket.
-
-- open vehicle info
-`$ open <vehicle>`
-- information about that vehicle is displayed
-- add new category or add repair instance to existing category
-`$ <add> or <update> repair <category>`
-`which instance?`
-- instances are listed and user will choose instance to edit
-- log information into app
 
 As a vehicle owner, <br/>
 I want to know the last time I had my tires rotated and balanced, <br/>
@@ -47,11 +40,6 @@ so I can know when they need to be replaced.
 As a vehicle owner, <br/>
 I want to know the last time I replaced my brakes, <br/>
 so I can know when they need to be replaced.
-
-- open vehicle info `$ open <vehicle>`
-- add new category or add repair instance to exhisting category
-`$ add repair <category> <instance>`
-- log information into app
 
 As a vehicle owner, <br/>
 I want to know the last time I replaced my windshield wipers, <br/>
