@@ -14,10 +14,11 @@ This command line application will assist users in remembering to do regular mai
 I am in the beginning stages of writing the program and will update this section as more working functionality is written.
 
 ## Current State of Project ##
+-  Database schema has been created.  currently working on added items to DB and models for each table.
 
 #### To Do ###
--  write to database with data from command line
--  write a few integration tests
+-  the ability to add a vehicle to the database
+-  add to existing models for each table
 -  write classes for each table
 -  begin writing methods and unit testing
 
