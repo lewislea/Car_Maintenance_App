@@ -9,7 +9,6 @@ Rake::TestTask.new( test: "db:test:prepare") do |t|
   t.pattern = "test/**/test_*.rb"
 end
 
-
 desc "Run tests"
 task :default => :test
 
@@ -47,7 +46,7 @@ db_namespace = namespace :db do
       filename = ENV['SCHEMA'] || "db/schema.rb"
       File.open(filename, "w:utf-8") do |file|
         ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
+      end
     end
   end
-end
 end
