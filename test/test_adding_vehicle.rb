@@ -3,10 +3,23 @@ require_relative 'test_helper'
 class TestAddingVehicle < MiniTest::Unit::TestCase
   include DatabaseCleaner
 
-  def test_takes_arguments_and_saves_them
+  def test_saves_to_database
     assert_equal 0, Vehicle.count
-    `ruby car.rb add Honda`
+    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986)
+    vehicle.save!
     assert_equal 1, Vehicle.count
+  end
+
+  def test_add_new_vehicle_make
+    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986)
+    vehicle.save!
+    assert_equal("Honda", vehicle.make)
+  end
+
+  def test_add_new_vehicle_model
+    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986)
+    vehicle.save!
+    assert_equal("Civic", vehicle.model)
   end
 
   # def test_takes_arguments_and_uses_them
