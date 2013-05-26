@@ -10,7 +10,7 @@ welcome = "\nWelcome to the Car Maintenance App!\n
   What would you like to do?\n
   - to add a vehicle to the database, type 'add-v'
   - to add a repair, type 'add-r'
-  - to view a list of vehicles, type 'list'\n"
+  - to view a list of vehicles or repairs, type 'list'\n"
 puts welcome
 
 command = gets.chomp
@@ -30,28 +30,28 @@ if command == "add-v"
   if new_vehicle.save
     puts "vehicle added!"
   else
-    puts "Failure: #{vehicle.errors.full_messages.join(", ")}"
+    puts "Failure: #{new_vehicle.errors.full_messages.join(", ")}"
   end
 elsif command == "add-r"
-  puts "What type of repair would you like to log? (We'll assign it to a vehicle at the end."
+  puts "type of repair? (we'll assign it to a vehicle at the end)"
   repair_type = gets.chomp
-  puts "How much did the repair cost?"
+  puts "repair cost?"
   repair_cost = gets.chomp
-  puts "Which mechanic did the repair?"
+  puts "what mechanic did you use?"
   mechanic = gets.chomp
-  puts "What was the date of the repair? YYYY/MM/DD"
+  puts "date of the repair? YYYY/MM/DD"
   date_of_repair = gets.chomp
-  puts "What mileage was on the vehicle at the time of the repair?"
+  puts "mileage on the vehicle at the time of the repair?"
   mileage_at_time = gets.chomp
-  puts "Please type any other notes that you would like to document the repair."
+  puts "type any other notes that you would like to document the repair."
   repair_notes = gets.chomp
-  puts "Which vehicle would you like to add a repair to?"
+  puts "which vehicle would you like to add a repair to?"
   #controller for all the listing stuff?
   all_vehicles = Vehicle.all
-  all_vehicles.each_with_index do |vehicle, i|
-    puts "#{i+1}. #{vehicle.year} #{vehicle.make} #{vehicle.model} vehicle ID: #{vehicle.id}"
+  all_vehicles.each_with_index do |vehicle|
+    puts "vehicle ID: #{vehicle.id} #{vehicle.year} #{vehicle.make} #{vehicle.model}"
     end
-  puts "type the ID of the vehicle that the repair is to be added to"
+  puts "type the numeric ID of the vehicle that the repair is to be added to"
   vehicle_id = gets.chomp
   # vehicle = Vehicle.find(vehicle_id)
   new_repair = Repair.new(type: repair_type, cost: repair_cost, mechanic: mechanic,
@@ -60,7 +60,7 @@ elsif command == "add-r"
   if new_repair.save
     puts "repair added!"
   else
-    puts "We were not able to add your repair. Please start the program again."
+    puts "Failure: #{new_repair.errors.full_messages.join(", ")}"
   end
 else command == "list"
   all_vehicles = Vehicle.all
@@ -78,9 +78,10 @@ else command == "list"
       puts "type the ID number of vehicle to view its repairs"
       vehicle_id = gets.chomp
       matching_repairs = Repair.where(vehicle_id: vehicle_id).all
-      matching_repairs.each do |repair,|
-        puts " date: #{repair.date_of_repair} repair: #{repair.repair_type} cost: #{repair.repair_cost}"
+      matching_repairs.each do |repair|
+        puts " date: #{repair.date} repair: #{repair.repair_type} cost: #{repair.cost}"
       end
+      puts "to remove a repair, type____,\nto edit a repair, type____"
     else new_command == "remove-vehicle"
       all_vehicles = Vehicle.all
       all_vehicles.each_with_index do |vehicle|
