@@ -10,8 +10,9 @@ welcome = "\nWelcome to the Car Maintenance App!\n\nHere is a list of your vehic
 puts welcome
 
 puts
-controller = VehicleController.new
-controller.index_vehicle
+v_controller = VehicleController.new
+r_controller = RepairController.new
+v_controller.index
 puts
 
 welcome_next = "What would you like to do?\n
@@ -65,7 +66,7 @@ elsif command == "add-r"
   puts "type any other notes that you would like to document the repair."
   repair_notes = gets.chomp
   puts "which vehicle would you like to add a repair to?"
-  controller.index_vehicle
+  v_controller.index
   puts "type the numeric ID of the vehicle that the repair is to be added to"
   vehicle_id = gets.chomp
   # vehicle = Vehicle.find(vehicle_id)
@@ -81,18 +82,18 @@ elsif command == "remove-v"
   puts "Please choose the vehicle you would like to remove and type the ID below\n
       NOTE: all repairs associated with this vehicle will also be removed."
       vehicle_id = gets.chomp
-      controller.delete_vehicle(vehicle_id)
+      v_controller.delete(vehicle_id)
 elsif command == "remove-r"
   puts "Which vehicle was the repair done on?  type vehicle ID below.\n"
       vehicle_id = gets.chomp
-      controller.index_repairs(vehicle_id)
+      r_controller.index(vehicle_id)
   puts "Which repair would you like to delete?"
     repair_id = gets.chomp
-      controller.delete_repair(repair_id)
+      r_controller.delete(repair_id)
 else command == "view-r"
       puts "type the ID number of vehicle to view its repairs"
       vehicle_id = gets.chomp
-      controller.index_repairs(vehicle_id)
+      r_controller.index(vehicle_id)
       puts "to remove a repair, type____,\nto edit a repair, type____"
 
 end
