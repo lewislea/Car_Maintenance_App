@@ -18,3 +18,5 @@ tmp
 _yardoc
 doc/
 db/*.sqlite3
+2013520141500_drop_projects_table.rb
+db/migrate/2013521110100_add_repair_table_column.rb

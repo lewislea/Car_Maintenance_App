@@ -1,38 +1,41 @@
 # Car Maintenance App #
-This command line application will assist users in remembering to do regular maintence on their cars. It will also feature a simple diagnostic tool that will help car owners gauge the severity of immediate problems along with mechanic recommendations that are close to their current area.
+This command line application will assist users in tracking the maintence they have had done on their cars.
 
 ## Features ##
-- Track Multiple Cars
-- Maintenance Log
-- Regular Maintenance Reminders (to be added in version 2)
-- Mechanic Finder and Reviews (to be added in version 2)
-- Log Repair Estimates from Multiple Mechanics (to be added in version 2)
-- Total Automotive Expense Cost Tracker (to be added in version 2)
-- Store Any Additional notes and pictures for each repair
+- track repairs and maintenance on multiple vehicles
+- view a repair log to see cost and repairs over the life of your ownership
+- store notes on each repair
 
 ## Usage Instructions ##
 - open app `$ ruby car.rb`
-- choose between adding a vehicle, a repair, or viewing a list of vehicles in the database
-`add-vehicle`,`add-repair`, `list-vehicles`
+-  a list of vehicles will appear
+-  command options are listed
+-  user can add a vehicle/repair `add-v` `add-r`, remove a vehicle/repair `remove-v` `remove-r`, or view repairs for a certain vehicle `view-r`
 - program will prompt user to input correct information
-- vehicle/repair is added to the database
+- the appropriate action is taken and saved to the database
 
 ## Current State of Project ##
--  Database schema has been created.  currently working on added items to DB and models for each table.
+basic functionality is up and running.  some features needs to be tweaked and refactoring is needed.
 
 #### To Do ###
--  the ability to add a vehicle to the database
--  add to existing models for each table
--  write classes for each table
--  begin writing methods and unit testing
+-  ability to edit exhisting vehicles and repairs
+-  add views
+-  begin integration and unit testing
 
 #### Done ####
 -  user stories
 -  acceptance criteria
 -  prioritize user stories & features
+-  vehicles are able to be added and saved
+-  repairs are able to be added and saved
+-  repairs for each vehicle are able to viewed in a list
+-  ability to remove individual repairs
+-  added controllers
+-  model validation when adding repairs and vehicles
 
 #### Known Bugs ####
-
+-  date input is in an awkward format
+-  program closes after completing each task.  there is no internal navigation.
 
 ## Author ##
 Lewis Lea
