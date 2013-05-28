@@ -3,6 +3,22 @@ class VehicleController
   def initialize
   end
 
+  def update
+    puts "please type the vehicle ID of the vehicle you would like to edit."
+    vehicle_id = gets.chomp
+    puts "what would you like to update? type 'make', 'model', 'year', 'mileage', 'purchased-on'\n"
+    attribute = gets.chomp
+    puts "what would you like to change it to?"
+    new_attribute = gets.chomp
+    if attribute == "" or new_attribute == ""
+      puts "one of the forms was blank.  please try again."
+    else
+    vehicle = Vehicle.find(vehicle_id)
+    vehicle.update_column(attribute, new_attribute)
+    puts "vehicle updated!"
+  end
+  end
+
   def index
     all_vehicles = Vehicle.all
     all_vehicles.each_with_index do |vehicle|

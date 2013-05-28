@@ -10,6 +10,23 @@ class RepairController
         end
   end
 
+  def update
+    puts "what repair would you like to update? type repair ID below"
+    repair_id = gets.chomp
+    puts "what would you like to update? type 'date', 'repair_type', 'cost', 'mileage', 'mechanic', 'notes'\n"
+    attribute = gets.chomp
+    puts "what would you like to change it to?"
+    new_attribute = gets.chomp
+    if attribute == "" or new_attribute == ""
+      puts "one of the forms was blank.  please try again."
+    else
+    repair = Repair.find(repair_id)
+    repair.update_column(attribute, new_attribute)
+    puts "repair ID: #{repair.id}, date: #{repair.date}, repair: #{repair.repair_type}, cost: #{repair.cost}, mechanic: #{repair.mechanic}, mileage: #{repair.mileage}, notes: #{repair.notes}\n"
+    puts "repair updated!"
+    end
+  end
+
   def delete(repair_id)
     Repair.delete(repair_id)
     puts "repair removed!"
