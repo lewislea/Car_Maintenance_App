@@ -4,6 +4,7 @@ This command line application will assist users in tracking the maintence they h
 
 ## Features ##
 - track repairs and maintenance on multiple vehicles
+- edit vehicles and repairs
 - view a repair log to see cost and repairs over the life of your ownership
 - store notes on each repair
 
@@ -11,17 +12,17 @@ This command line application will assist users in tracking the maintence they h
 - open app `$ ruby car.rb`
 -  a list of vehicles will appear
 -  command options are listed
--  user can add a vehicle/repair `add-v` `add-r`, remove a vehicle/repair `remove-v` `remove-r`, or view repairs for a certain vehicle `view-r`
+-  user can choose from the following commands. <br/> add a vehicle/repair `add-v` `add-r`<br/> remove a vehicle/repair `remove-v` `remove-r` <br/> edit a vehicle/repair `edit-r` `edit-v`<br/> view repairs for a specified vehicle `view-r`
 - program will prompt user to input correct information
 - the appropriate action is taken and saved to the database
 
 ## Current State of Project ##
-basic functionality is up and running.  some features needs to be tweaked and refactoring is needed.
+basic functionality is up and running.  known bugs need to be addressed and to do list finished (see below).
 
 #### To Do ###
--  ability to edit exhisting vehicles and repairs
--  add views
--  begin integration and unit testing
+-  add views folder
+-  write further tests for integration and unit testing
+-  refactoring
 
 #### Done ####
 -  user stories
@@ -33,10 +34,11 @@ basic functionality is up and running.  some features needs to be tweaked and re
 -  ability to remove individual repairs
 -  added controllers
 -  model validation when adding repairs and vehicles
+-  ability to edit vehicles and repairs
 
 #### Known Bugs ####
 -  date input is in an awkward format
--  program closes after completing each task.  there is no internal navigation.
+-  program closes after completing 2 identical tasks.  beyond that, there is no internal navigation.
 -  program sometimes confirms that actions are taken when they are not.  for example, when an input is left blank.
 
 ## Author ##
