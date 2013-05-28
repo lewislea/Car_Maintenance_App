@@ -1,6 +1,7 @@
 # Car Maintenance App #
 This command line application will assist users in tracking the maintence they have had done on their cars.
 
+
 ## Features ##
 - track repairs and maintenance on multiple vehicles
 - view a repair log to see cost and repairs over the life of your ownership
@@ -36,6 +37,7 @@ basic functionality is up and running.  some features needs to be tweaked and re
 #### Known Bugs ####
 -  date input is in an awkward format
 -  program closes after completing each task.  there is no internal navigation.
+-  program sometimes confirms that actions are taken when they are not.  for example, when an input is left blank.
 
 ## Author ##
 Lewis Lea
