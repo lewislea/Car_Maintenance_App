@@ -1,8 +1,6 @@
 class RepairController
 
     def index(vehicle_id)
-      puts "type the ID number of vehicle to view its repairs"
-      vehicle_id = gets.chomp
       matching_repairs = Repair.where(vehicle_id: vehicle_id).all
       puts "\nREPAIRS:\n"
       matching_repairs.each do |repair|

@@ -22,7 +22,7 @@ class VehicleController
   def index
     all_vehicles = Vehicle.all
     all_vehicles.each_with_index do |vehicle|
-    puts "vehicle ID: #{vehicle.id} #{vehicle.year} #{vehicle.make} #{vehicle.model} mileage: #{vehicle.mileage}"
+    puts "vehicle ID: #{vehicle.id} year: #{vehicle.year} make: #{vehicle.make} model: #{vehicle.model} mileage: #{vehicle.mileage}"
       end
   end
 
@@ -45,7 +45,7 @@ class VehicleController
     end
   end
 
-  def delete(vehicle_id)
+  def delete
     puts "Please choose the vehicle you would like to remove and type the ID below\n
     NOTE: all repairs associated with this vehicle will also be removed."
     vehicle_id = gets.chomp

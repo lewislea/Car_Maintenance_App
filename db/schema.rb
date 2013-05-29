@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2013526123400) do
+ActiveRecord::Schema.define(:version => 2013521105600) do
 
   create_table "repairs", :force => true do |t|
-    t.text     "repair_type", :limit => 255
+    t.text     "repair_type"
     t.text     "notes"
     t.string   "mechanic"
     t.integer  "cost"
     t.date     "date"
     t.integer  "mileage"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
     t.integer  "vehicle_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "vehicles", :force => true do |t|

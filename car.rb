@@ -6,7 +6,7 @@ database = ENV['CAR_ENV'] || 'development'
 
 connect_to database
 
-welcome = "\nWelcome to the Car Maintenance App!\n\nHere is a list of your vehicles.\n"
+welcome = "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n"
 puts welcome
 
 puts
@@ -41,20 +41,31 @@ elsif command == "add-r"
   else
   end
 elsif command == "remove-v"
-  v_controller.delete(vehicle_id)
-  puts "would you like to remove another vehicle?"
+  v_controller.delete
+  puts "would you like to remove another vehicle? type Y or N"
   yorn = gets.chomp
   if yorn == "Y" or yorn == "yes" or yorn == "YES" or yorn =="y"
-    v_controller.delete(vehicle_id)
+    v_controller.delete
   else
   end
 elsif command == "remove-r"
-  puts "Which vehicle was the repair done on?  type vehicle ID below.\n"
+  puts "type the ID number of vehicle to view its repairs"
   vehicle_id = gets.chomp
   r_controller.index(vehicle_id)
   puts "type the ID of the repair you would like to delete"
   repair_id = gets.chomp
   r_controller.delete(repair_id)
+  puts "would you like to remove another repair? type Y or N"
+  yorn = gets.chomp
+  if yorn == "Y" or yorn == "yes" or yorn == "YES" or yorn =="y"
+    puts "type the ID number of vehicle to view its repairs"
+    vehicle_id = gets.chomp
+    r_controller.index(vehicle_id)
+    puts "type the ID of the repair you would like to delete"
+    repair_id = gets.chomp
+    r_controller.delete(repair_id)
+  else
+  end
 elsif command == "edit-v"
   v_controller.update
   v_controller.index
@@ -66,6 +77,8 @@ elsif command == "edit-v"
   else
   end
 elsif command == "edit-r"
+  puts "type the ID number of vehicle to view its repairs"
+  vehicle_id = gets.chomp
   r_controller.index(vehicle_id)
   r_controller.update
   puts "would you like to edit something else? type Y or N"
@@ -76,11 +89,15 @@ elsif command == "edit-r"
   else
   end
 else command == "view-r"
+  puts "type the ID number of vehicle to view its repairs"
+  vehicle_id = gets.chomp
   r_controller.index(vehicle_id)
   puts "would you like to view repairs for another vehicle? type Y or N"
   yorn = gets.chomp
   if yorn == "Y" or yorn == "yes" or yorn == "YES" or yorn =="y"
     v_controller.index
+    puts "type the ID number of vehicle to view its repairs"
+    vehicle_id = gets.chomp
     r_controller.index(vehicle_id)
   else
   end
