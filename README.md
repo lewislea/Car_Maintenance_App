@@ -20,6 +20,8 @@ This command line application will assist users in tracking the maintence they h
 
 [![Build Status](https://travis-ci.org/lewislea/Vehicle_Maintenance_App.png)](https://travis-ci.org/lewislea/Vehicle_Maintenance_App)
 
+[![Code Climate](https://codeclimate.com/github/lewislea/Vehicle_Maintenance_App.png)](https://codeclimate.com/github/lewislea/Vehicle_Maintenance_App)
+
 basic functionality is up and running.  known bugs need to be addressed and to do list finished (see below).t
 
 #### To Do ###
