@@ -6,19 +6,21 @@ class TestAddingRepair < MiniTest::Unit::TestCase
 def test_add_repair
     shell_output = ""
     IO.popen('ruby car.rb', 'r+') do |pipe|
-      #add-v to add vehcile
+       #add-r to add vehcile
       pipe.puts("add-r")
-      #make
+      #repair type
       pipe.puts("oil change")
-      #model
-      pipe.puts(300)
-      #year
+      #cost
+      pipe.puts("")
+      #mechanic
       pipe.puts("Gary")
-      #mileage
+      #date of repair
       pipe.puts("2010-4-5")
-      #purchased date
+      #mileage at time of repair
       pipe.puts(23487)
-      #add another?
+      #other notes
+      pipe.puts("none")
+      #vehicle id of car repair is to be added to
       pipe.puts(4)
       pipe.close_write
       shell_output = pipe.read
@@ -31,6 +33,7 @@ type of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "mileage on the vehicle at the time of the repair? (do not use commas)"
     assert_includes shell_output, "type any other notes that you would like to document the repair."
     assert_includes shell_output, "which vehicle would you like to add a repair to?"
+    assert_includes shell_output, "type the numeric ID of the vehicle that the repair is to be added to\n"
   end
 
   def test_blank_field_throws_exception
