@@ -3,6 +3,10 @@ require_relative 'test_helper'
 class TestAddingRepair < MiniTest::Unit::TestCase
   include DatabaseCleaner
 
+def welcome_message
+  "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n"
+end
+
 def test_add_repair
     shell_output = ""
     IO.popen('ruby car.rb', 'r+') do |pipe|
@@ -22,9 +26,12 @@ def test_add_repair
       pipe.puts("none")
       #vehicle id of car repair is to be added to
       pipe.puts(4)
+      #add another?
+      pipe.puts("N")
       pipe.close_write
       shell_output = pipe.read
     end
+    assert_includes shell_output, welcome_message
     assert_includes shell_output, "*all fields required*
 type of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "repair cost?"
@@ -34,6 +41,7 @@ type of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "type any other notes that you would like to document the repair."
     assert_includes shell_output, "which vehicle would you like to add a repair to?"
     assert_includes shell_output, "type the numeric ID of the vehicle that the repair is to be added to\n"
+    assert_includes shell_output, "would you like to add another repair? type Y or N"
   end
 
   def test_blank_field_throws_exception
@@ -55,9 +63,12 @@ type of repair? (we'll assign it to a vehicle at the end)"
       pipe.puts("none")
       #vehicle id of car repair is to be added to
       pipe.puts(4)
+      #add another?
+      pipe.puts("N")
       pipe.close_write
       shell_output = pipe.read
     end
+    assert_includes shell_output, welcome_message
     assert_includes shell_output, "*all fields required*
 type of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "repair cost?"
@@ -67,6 +78,7 @@ type of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "type any other notes that you would like to document the repair."
     assert_includes shell_output, "which vehicle would you like to add a repair to?"
     assert_includes shell_output, "Failure: Cost can't be blank"
+    assert_includes shell_output, "would you like to add another repair? type Y or N"
   end
 
 end
