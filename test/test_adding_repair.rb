@@ -4,7 +4,7 @@ class TestAddingRepair < MiniTest::Unit::TestCase
   include DatabaseCleaner
 
 def welcome_message
-  "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n"
+  "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n\n"
 end
 
 def test_add_repair
