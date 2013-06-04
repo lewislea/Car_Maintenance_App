@@ -6,7 +6,8 @@ class VehicleController
   def update
     puts "please type the vehicle ID of the vehicle you would like to edit."
     vehicle_id = gets.chomp
-    puts "what would you like to update? type 'make', 'model', 'year', 'mileage', 'purchased-on'\n"
+    puts "what would you like to update? type 'make', 'model', 'year',
+    'mileage', 'purchased-on'\n"
     attribute = gets.chomp
     puts "what would you like to change it to?"
     new_attribute = gets.chomp
@@ -22,7 +23,8 @@ class VehicleController
   def index
     all_vehicles = Vehicle.all
     all_vehicles.each_with_index do |vehicle|
-    puts "vehicle ID: #{vehicle.id} year: #{vehicle.year} make: #{vehicle.make} model: #{vehicle.model} mileage: #{vehicle.mileage}"
+    puts "vehicle ID: #{vehicle.id} year: #{vehicle.year} make: #{vehicle.make}
+     model: #{vehicle.model} mileage: #{vehicle.mileage}"
       end
   end
 
@@ -37,7 +39,8 @@ class VehicleController
     mileage = gets.chomp
     puts "When did you purchase the vehicle? YYYY/MM/DD"
     purchased_on = gets.chomp
-    new_vehicle = Vehicle.new(make: make, model: model, year: year, mileage: mileage, purchased_on: purchased_on)
+    new_vehicle = Vehicle.new(make: make, model: model, year: year, mileage: mileage,
+      purchased_on: purchased_on)
     if new_vehicle.save
       puts "vehicle added!"
     else

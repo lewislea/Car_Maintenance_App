@@ -3,23 +3,61 @@ require_relative 'test_helper'
 class TestAddingVehicle < MiniTest::Unit::TestCase
   include DatabaseCleaner
 
-  def test_saves_to_database
-    assert_equal 0, Vehicle.count
-    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986, mileage: 20)
-    vehicle.save!
-    assert_equal 1, Vehicle.count
+   def test_add_vehicle
+    shell_output = ""
+    IO.popen('ruby car.rb', 'r+') do |pipe|
+      #add-v to add vehcile
+      pipe.puts("add-v")
+      #make
+      pipe.puts("Honda")
+      #model
+      pipe.puts("Accord")
+      #year
+      pipe.puts(2003)
+      #mileage
+      pipe.puts(39088)
+      #purchased date
+      pipe.puts("2009-4-5")
+      #add another?
+      pipe.puts("n")
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_includes shell_output, "What is the make of the vehicle?"
+    assert_includes shell_output, "What is the model of the vehicle"
+    assert_includes shell_output, "What year was the vehicle made?"
+    assert_includes shell_output, "How many miles are currently on the vehicle? (do not use commas)"
+    assert_includes shell_output, "When did you purchase the vehicle? YYYY/MM/DD"
+    assert_includes shell_output, "would you like to add another vehicle? type Y or N"
   end
 
-  def test_add_new_vehicle_make
-    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986, mileage: 20)
-    vehicle.save!
-    assert_equal("Honda", vehicle.make)
-  end
-
-  def test_add_new_vehicle_model
-    vehicle = Vehicle.new(make: "Honda", model: "Civic", year: 1986, mileage: 20)
-    vehicle.save!
-    assert_equal("Civic", vehicle.model)
+  def test_blank_field_throws_exception
+    shell_output = ""
+    IO.popen('ruby car.rb', 'r+') do |pipe|
+      #add-v to add vehcile
+      pipe.puts("add-v")
+      #make
+      pipe.puts("Honda")
+      #model
+      pipe.puts("")
+      #year
+      pipe.puts(2003)
+      #mileage
+      pipe.puts(39088)
+      #purchased date
+      pipe.puts("2009-4-5")
+      #add another?
+      pipe.puts("n")
+      pipe.close_write
+      shell_output = pipe.read
+    end
+    assert_includes shell_output, "What is the make of the vehicle?"
+    assert_includes shell_output, "What is the model of the vehicle"
+    assert_includes shell_output, "What year was the vehicle made?"
+    assert_includes shell_output, "How many miles are currently on the vehicle? (do not use commas)"
+    assert_includes shell_output, "When did you purchase the vehicle? YYYY/MM/DD"
+    assert_includes shell_output, "Failure: Model can't be blank"
+    assert_includes shell_output, "would you like to add another vehicle? type Y or N"
   end
 
 end
