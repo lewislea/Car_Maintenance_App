@@ -4,7 +4,7 @@ class TestAddingRepair < MiniTest::Unit::TestCase
   include DatabaseCleaner
 
 def welcome_message
-  "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n"
+  "\nWelcome to the Vehicle Maintenance App!\n\nHere is a list of your vehicles.\n\n"
 end
 
 def test_add_repair
@@ -31,7 +31,8 @@ def test_add_repair
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message + "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
+    assert_includes shell_output, welcome_message
+    assert_includes shell_output, "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "repair cost?"
     assert_includes shell_output, "what mechanic did you use?"
     assert_includes shell_output, "date of the repair? YYYY/MM/DD"
@@ -66,7 +67,8 @@ def test_add_repair
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message + "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
+    assert_includes shell_output, welcome_message
+    assert_includes shell_output, "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "repair cost?"
     assert_includes shell_output, "what mechanic did you use?"
     assert_includes shell_output, "date of the repair? YYYY/MM/DD"
