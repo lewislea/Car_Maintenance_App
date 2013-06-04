@@ -31,9 +31,9 @@ def test_add_repair
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message
-    assert_includes shell_output, "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
-    assert_includes shell_output, "repair cost?"
+    assert_includes shell_output, "\nWelcome to the Vehicle Maintenance App!\n\n
+    Here is a list of your vehicles.\n\n*all fields required*\ntype of repair?
+    (we'll assign it to a vehicle at the end)"    assert_includes shell_output, "repair cost?"
     assert_includes shell_output, "what mechanic did you use?"
     assert_includes shell_output, "date of the repair? YYYY/MM/DD"
     assert_includes shell_output, "mileage on the vehicle at the time of the repair? (do not use commas)"
@@ -67,8 +67,9 @@ def test_add_repair
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message
-    assert_includes shell_output, "*all fields required*\ntype of repair? (we'll assign it to a vehicle at the end)"
+    assert_includes shell_output, "\nWelcome to the Vehicle Maintenance App!\n\n
+    Here is a list of your vehicles.\n\n*all fields required*\ntype of repair?
+    (we'll assign it to a vehicle at the end)"
     assert_includes shell_output, "repair cost?"
     assert_includes shell_output, "what mechanic did you use?"
     assert_includes shell_output, "date of the repair? YYYY/MM/DD"

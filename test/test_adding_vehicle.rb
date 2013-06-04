@@ -27,8 +27,8 @@ class TestAddingVehicle < MiniTest::Unit::TestCase
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message
-    assert_includes shell_output, "What is the make of the vehicle?"
+    assert_includes shell_output, "\nWelcome to the Vehicle Maintenance App!\n\n
+    Here is a list of your vehicles.\n\nWhat is the make of the vehicle?"
     assert_includes shell_output, "What is the model of the vehicle"
     assert_includes shell_output, "What year was the vehicle made?"
     assert_includes shell_output, "How many miles are currently on the vehicle? (do not use commas)"
@@ -56,8 +56,8 @@ class TestAddingVehicle < MiniTest::Unit::TestCase
       pipe.close_write
       shell_output = pipe.read
     end
-    assert_includes shell_output, welcome_message
-    assert_includes shell_output, "What is the make of the vehicle?"
+    assert_includes shell_output, "\nWelcome to the Vehicle Maintenance App!\n\n
+    Here is a list of your vehicles.\n\nWhat is the make of the vehicle?"
     assert_includes shell_output, "What is the model of the vehicle"
     assert_includes shell_output, "What year was the vehicle made?"
     assert_includes shell_output, "How many miles are currently on the vehicle? (do not use commas)"
